@@ -1,0 +1,41 @@
+<div>
+  <h1>Temperature Converter</h1>
+</div>
+
+<div>
+  <mat-form-field class="example-form-field">
+    <mat-label>Celsius</mat-label>
+    <input
+      matInput
+      type="number"
+      [ngModel]="celsiusValue()"
+      (input)="onCelsiusInput(celsiusInput.value)"
+      #celsiusInput
+      placeholder="°C eingeben">
+    <span matSuffix style="margin-right: 8px;">°C</span>
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field class="example-form-field">
+    <mat-label>Fahrenheit</mat-label>
+    <input
+      matInput
+      type="number"
+      [ngModel]="fahrenheitValue()"
+      (input)="onFahrenheitInput(fahrenheitInput.value)"
+      #fahrenheitInput
+      placeholder="°F eingeben">  
+    <span matSuffix style="margin-right: 8px;">°F</span>
+  </mat-form-field>
+</div>
+
+<div class="thermometer-container">
+  <div class="thermometer-tube">
+    <div class="thermometer-fluid" 
+         [style.height.%]="getfluidHeight()" 
+         [style.background-color]="getfluidColor()">
+    </div>
+  </div>
+  <div class="thermometer-bulb" [style.background-color]="getfluidColor()"></div>
+</div>
